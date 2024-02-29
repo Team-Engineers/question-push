@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
         .then(response => response.json())
         .then(data => {
+            alert("Question pushed sucessfully");
             console.log('API response:', data);
         })
         .catch(error => {
