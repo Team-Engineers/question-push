@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h2> Subject </h2>
+    <div class="form-section">
+        <label for="subject">Select Subject:</label>
+        <select id="subject" onchange="toggleTopicDiv()">
+            <option value="math" selected>Quant</option>
+            <option value="di">Data Intrepretation</option>
+            <option value="lr">Logical Reasoning</option>
+            <option value="varc">Verbal Ability and Reading Comprehension</option>
+        </select>
+    </div>
+    <h2>Version</h2>
+    <div class="form-section">
+        <label for="formChoice">Choose Version of Question :</label>
+        <select id="formChoice">
+            <option value="v1">v2</option>
+            <option value="v2" selected>v1</option>
+        </select>
+    </div>
+
+    <h1>Create a New Question</h1>
+    <form id="question-form">
+            <div class="form-section hidden-for-v1">
+
+                <label for="paragraph">Paragraph Text:</label>
+                <textarea id="paragraph" name="paragraph" rows="5" cols="80"></textarea>
+                
+                <label for="paragraphImages">Upload Paragraph Images:</label>
+                <input type="file" id="paragraphImages" name="paragraphImages" accept="image/*" multiple>
+            </div>
+                
+            <div class="form-section hidden-for-v1">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" name="difficulty">
+                    <option value="L1">L1</option>
+                    <option value="L2">L2</option>
+                    <option value="L3">L3</option>
+                </select>
+            </div>
+
+            <div class="form-section math">
+                <label for="topic">Topic:</label>
+                <select id="math" name="topic">
+                    <option value="number_system">Number System</option>
+                    <option value="profit_and_loss">Profit and Losss</option>
+                    <option value="percentage">Percentage</option>
+                    <option value="average">Average</option>
+                    <option value="simple_interest_and_compound_interest"> Simple Interest and Compound Interest</option>
+                    <option value="partnership">Partnership </option>
+                    <option value="ratio_and_proportion">Ratio and Proportion </option>
+                    <option value="time_and_work">Time and work </option>
+                    <option value="time_speed_and_distance">Time Speed and Distance </option>
+                    <option value="probability"> Probability</option>
+                    <option value="permutation_and_combination"> Permutation and Combination</option>
+                </select>
+            </div>
+            <div class="form-section di">
+                <label for="topic">Topic:</label>
+                <select name="topic" id="di">
+                    <option value="pie_chart">Pie Chart</option>
+                    <option value="bar_chart">Bar Chart</option>
+                    <option value="line_chart">Line Chart</option>
+                    <option value="table_chart">Table Chart </option>
+                </select>
+            </div>
+            <div class="form-section lr">
+                <label for="topic">Topic:</label>
+                <select name="topic" id="lr">
+                    <option value="coding_and_decoding">Coding and Decoding</option>
+                    <option value="family_tree_and_blood_relations">Family Tree and Blood relations</option>
+                    <option value="directions">Directions</option>
+                    <option value="number_alphabet_series">Number/Alphabet series</option>
+                    <option value="puzzles">Puzzles</option>
+                    <option value="critical_reasoning">Critical Reasoning  </option>
+                    <option value="situation_test">Situation Test </option>
+                    <option value="arrangements">Arrangements </option>
+                    <option value="miscellaneous">Miscellaneous </option>
+                </select>
+            </div>
+            <div class="form-section varc">
+                <label for="topic">Topic:</label>
+                <select name="topic" id="varc">
+                    <option value="sentence_correction">Sentence Correction </option>
+                    <option value="reading_comprehension">Read Comprehension</option>
+                    <option value="critical_reasoning">Critical Reasoning</option>
+                    <option value="sentence_completion">Sentence Completion </option>
+                    <option value="syllogisms">Syllogisms</option>
+                    <option value="vocabulary">Vocabulary </option>
+                    <option value="analogy">Analogy </option>
+                    <option value="fill_in_the_blanks">Fill in the blanks </option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label for="subTopic" class="form-label">SubTopic:</label>
+                <select class="form-select" id="subTopic" name="subTopic">
+                    <option value="subtopic1">Subtopic 1</option>
+                    <option value="subject_verb_agreement">Subject Verb Agreement</option>
+                    <option value="modifiers">Modifiers</option>
+                    <option value="parallel_construction">Parallel Construction</option>
+                    <option value="synonyms">Synonyms</option>
+                    <option value="antonyms">antonyms</option>
+                    <option value="one_word_substitution">One word Substitution</option>
+                    <option value="idioms_and_phrases">Idioms and Phrases</option>
+
+                </select>
+            </div>
+
+            <div class="form-section">
+                <label for="entranceExams">Entrance Exams:</label>
+                <select id="entranceExams" name="entrance_exams" multiple>
+                    <option value="Gate">Gate</option>
+                    <option value="JEE">JEE</option>
+                    <option value="MCAT">MCAT</option>
+                    <option value="Gre">Gre</option>
+                    <option value="CAT">CAT</option>
+                    <option value="Gmat">Gmat</option>
+                    <option value="CUET">CUET</option>
+                    <option value="SAT">SAT</option>
+                    <option value="IPMAT,">IPMAT</option>
+                    <option value="SLAT">SLAT</option>
+                    <option value="NMAT">NMAT</option>
+                    <option value="NPMAT">NPMAT</option>
+                    <option value="NIMS">NIMS</option>
+                </select>
+            </div>
+        
+        <div id="questions" class="form-section">
+            <h2>Questions</h2>
+            <h2 class="hidden-for-v1">Question 1</h2>
+            <div class="question-container">
+
+                <label for="questionText1">Question 1 Text:</label>
+                <textarea id="questionText1" name="questions[1].text" rows="5" cols="80" required></textarea>
+
+                <label for="questionImages1">Upload Question 1 Images:</label>
+                <input type="file" id="questionImages1" name="questions[1].images" accept="image/*" multiple>
+
+                <label for="questionDifficulty1">Question Difficulty:</label>
+                <select id="questionDifficulty1" name="questions[1].difficulty">
+                    <option value="L1">L1</option>
+                    <option value="L2">L2</option>
+                    <option value="L3">L3</option>
+                </select>
+
+
+                <h3>Options</h3>
+                <div id="question-1" class="question-options">
+                    <div class="option-container">
+                        <label for="optionText1_1">Option 1 Text:</label>
+                        <input type="text" id="optionText1_1" name="questions[1].options[1].text" required>
+                        <label for="optionImage1_1">Option 1 Image:</label>
+                        <input type="file" id="optionImage1_1" name="questions[1].options[1].image" accept="image/*">
+                    </div>
+
+                    <div class="option-container">
+                        <label for="optionText1_2">Option 2 Text:</label>
+                        <input type="text" id="optionText1_2" name="questions[1].options[2].text" required>
+                        <label for="optionImage1_2">Option 2 Image:</label>
+                        <input type="file" id="optionImage1_2" name="questions[1].options[2].image" accept="image/*">
+                    </div>
+
+                    <div class="option-container">
+                        <label for="optionText1_3">Option 3 Text:</label>
+                        <input type="text" id="optionText1_3" name="questions[1].options[3].text" required>
+                        <label for="optionImage1_3">Option 3 Image:</label>
+                        <input type="file" id="optionImage1_3" name="questions[1].options[3].image" accept="image/*">
+                    </div>
+
+                    <div class="option-container">
+                        <label for="optionText1_4">Option 4 Text:</label>
+                        <input type="text" id="optionText1_4" name="questions[1].options[4].text" required>
+                        <label for="optionImage1_4">Option 4 Image:</label>
+                        <input type="file" id="optionImage1_4" name="questions[1].options[4].image" accept="image/*">
+                    </div>
+                </div>
+
+                <label for="correctOptionIndex1">Correct Option Index:</label>
+                <input type="number" id="correctOptionIndex1" name="questions[1].correctOptionIndex" min="1" required>
+
+                <label for="explanation1">Explanation : </label>
+                <textarea id="explanation1" name="explanation1" required rows="5" cols="80"></textarea>
+                
+                <label for="explanation1images">Upload Paragraph Images:</label>
+                <input type="file" id="explanation1images" name="explanation1images" accept="image/*" multiple>
+
+                <button type="button" onclick="addOption(1)">Add Option</button>
+            </div>
+        </div>
+        <div class="form-section">
+            <button type="submit">Submit</button>
+            <button class="hidden-for-v1" type="button" onclick="addQuestion()">Add Question</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </div>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyASByHisF628tGERKa5Og6sY18j9LA_ugc",
+            authDomain: "questionbank-d0788.firebaseapp.com",
+            projectId: "questionbank-d0788",
+            storageBucket: "questionbank-d0788.appspot.com",
+            messagingSenderId: "715290109810",
+            appId: "1:715290109810:web:0da69da285657aa3a31feb",
+            measurementId: "G-6HWTKSWMXL"
+        };
+        firebase.initializeApp(firebaseConfig);
+        console.log(firebase);
+    </script>
+    <script src="question-form.js"></script>
+</body>
+</html>
