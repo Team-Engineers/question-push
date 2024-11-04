@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     
-    const apiEndpoint = `https://ourntamockpapers.onrender.com/api/${subject}/question/${version}`;
+    const apiEndpoint = `https://api.testknock.com/api/${subject}/question/${version}`;
     console.log("checking final data", formData, apiEndpoint);
     fetch(apiEndpoint, {
         method: 'POST',
